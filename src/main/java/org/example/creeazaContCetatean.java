@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class paginaCetatean {
+public class creeazaContCetatean {
 
     public static void afisarePaginaCetatean(Stage primaryStage, VBox cetateanPage) {
         primaryStage.setTitle("Pagina Cetățean");

@@ -1,12 +1,8 @@
 package org.example;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -34,7 +30,7 @@ public class paginaStart extends Application {
         vbox.setAlignment(Pos.CENTER);
         vbox.getChildren().addAll(primarButton, cetateanButton);
 
-        Scene scene = new Scene(vbox, 500, 300);
+        Scene scene = new Scene(vbox, 500, 500);
 
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -46,14 +42,11 @@ public class paginaStart extends Application {
         cetateanPage.getChildren().add(new Button("Pagina Cetățean"));
 
         primarButton.setOnAction(e -> {
-            paginaPrimar.afisarePaginaPrimar(primaryStage, primarPage);
+            creeazaContPrimar.afisarePaginaPrimar(primaryStage, primarPage);
         });
 
         cetateanButton.setOnAction(e -> {
-            paginaCetatean.afisarePaginaCetatean(primaryStage, cetateanPage);
+            creeazaContCetatean.afisarePaginaCetatean(primaryStage, cetateanPage);
         });
     }
-
-
-
 }
