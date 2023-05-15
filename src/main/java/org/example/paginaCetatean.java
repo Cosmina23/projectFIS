@@ -3,32 +3,18 @@ package org.example;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-        import javafx.scene.control.Button;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-        import javafx.stage.Stage;
-/*
-public class paginaPrimar{
-    public void afisarePagina() {
-        Stage stage = new Stage();
+import javafx.stage.Stage;
 
-        VBox primarPage = new VBox(10);
-        primarPage.getChildren().add(new Button("Pagina Primar"));
+public class paginaCetatean {
 
-        Scene scene = new Scene(primarPage, 500, 300);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-}*/
-
-public class paginaPrimar{
-    public static void afisarePaginaPrimar(Stage primaryStage,VBox primarPage ) {
-        primaryStage.setTitle("Pagina Primar");
-
+    public static void afisarePaginaCetatean(Stage primaryStage, VBox cetateanPage) {
+        primaryStage.setTitle("Pagina Cetățean");
+        primaryStage.getScene().setRoot(cetateanPage);
         // Creare interfață de autentificare
         GridPane loginGrid = new GridPane();
         loginGrid.setAlignment(Pos.CENTER);
@@ -50,11 +36,11 @@ public class paginaPrimar{
         loginButton.setOnAction(e -> {
             String nume = numeField.getText();
             String prenume = prenumeField.getText();
-            // Verificarea autentificării și alte acțiuni specifice primarului
+            // Verificarea autentificării și alte acțiuni specifice cetățeanului
             // ...
 
-            // După autentificare, puteți afișa pagina primarului
-            primaryStage.getScene().setRoot(primarPage);
+            // După autentificare, puteți afișa pagina cetățeanului
+            primaryStage.getScene().setRoot(cetateanPage);
         });
 
         loginGrid.add(loginButton, 1, 2);
@@ -62,6 +48,4 @@ public class paginaPrimar{
         Scene loginScene = new Scene(loginGrid, 500, 300);
         primaryStage.setScene(loginScene);
     }
-
-
 }
