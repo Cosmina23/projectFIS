@@ -35,14 +35,8 @@ public class paginaPrincipala extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        creeazaCont = new VBox(10);
-        creeazaCont.getChildren().add(new Button("Creeaza Cont"));
-
-        contulMeu = new VBox(10);
-        contulMeu.getChildren().add(new Button("Contul meu"));
-
         creeazaButton.setOnAction(e -> {
-            paginaStart.afisareCreareCont(primaryStage, creeazaCont);
+            paginaCreazaCont.afisareCreareCont(primaryStage,creeazaCont);
         });
 
     }
