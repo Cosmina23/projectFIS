@@ -3,12 +3,12 @@ package org.example;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-        import javafx.scene.control.Button;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-        import javafx.stage.Stage;
+import javafx.stage.Stage;
 
 public class creeazaContPrimar {
     public static void afisarePaginaPrimar(Stage primaryStage,VBox primarPage ) {
@@ -33,11 +33,13 @@ public class creeazaContPrimar {
         TextField emailField = new TextField();
         Label usernameLabel = new Label("Uername:");
         TextField usernameField = new TextField();
-        //se adauga cod doar pentru cazul primarului
+        //se adauga cod doar in cazul primarului
         Label codLabel = new Label("Cod specific fiecarui primar:");
         TextField codField = new TextField();
-        Label passwordLabel = new Label("Password:");
+        Label passwordLabel = new Label("Parola:");
         TextField passwordField = new TextField();
+        Label confirmpassLabel = new Label("Confirma parola:");
+        TextField confirmpassField = new TextField();
 
         loginGrid.add(numeLabel, 0, 0);
         loginGrid.add(numeField, 1, 0);
@@ -55,6 +57,8 @@ public class creeazaContPrimar {
         loginGrid.add(codField,1,6);
         loginGrid.add(passwordLabel,0,7);
         loginGrid.add(passwordField,1,7);
+        loginGrid.add(confirmpassLabel,0,8);
+        loginGrid.add(confirmpassField,1,8);
 
 
         Button loginButton = new Button("Autentificare");
@@ -67,6 +71,7 @@ public class creeazaContPrimar {
             String username = usernameField.getText();
             String cod = codField.getText();
             String password = passwordField.getText();
+            String confirmpass = confirmpassField.getText();
             // Verificarea autentificării și alte acțiuni specifice primarului
             // ...
 
@@ -74,7 +79,7 @@ public class creeazaContPrimar {
             primaryStage.getScene().setRoot(primarPage);
         });
 
-        loginGrid.add(loginButton, 1, 8);
+        loginGrid.add(loginButton, 1, 9);
 
         Scene loginScene = new Scene(loginGrid, 500, 500);
         primaryStage.setScene(loginScene);
