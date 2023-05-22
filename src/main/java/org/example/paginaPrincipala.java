@@ -56,6 +56,6 @@ public class paginaPrincipala extends Application {
         creeazaButton.setOnAction(e -> {
             paginaCreazaCont.afisareCreareCont(primaryStage,creeazaCont);
         });
-
     }
+
 }

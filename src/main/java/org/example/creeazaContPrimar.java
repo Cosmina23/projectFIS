@@ -92,7 +92,7 @@ public class creeazaContPrimar {
             P.setUsername(username);
             P.setCodPrimar(cod);
             P.setParola(password);
-            if(password == confirmpass && !verifyP(P)){
+            if(password.equals(confirmpass) && !verifyP(P)){
                 //adauca primar P in lista de conturi
                 adaugaContPrimar(P);
                 primaryStage.getScene().setRoot(primarPage);
