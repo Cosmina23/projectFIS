@@ -9,6 +9,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.example.DateConectare.dateCetatean;
+
+import static org.example.paginaPrincipala.*;
 
 public class creeazaContCetatean {
 
@@ -56,6 +59,9 @@ public class creeazaContCetatean {
         loginGrid.add(confirmpassLabel,0,7);
         loginGrid.add(confirmpassField,1,7);
 
+        Label errorLabel = new Label();
+        loginGrid.add(errorLabel, 1, 8);
+
         Button loginButton = new Button("Autentificare");
         loginButton.setOnAction(e -> {
             String nume = numeField.getText();
@@ -67,7 +73,22 @@ public class creeazaContCetatean {
             String password = passwordField.getText();
             String confirmpass = confirmpassField.getText();
             // Verificarea autentificării și alte acțiuni specifice cetățeanului
-            // ...
+            dateCetatean C = new dateCetatean();
+            C.setNume(nume);
+            C.setPrenume(prenume);
+            C.setOras(oras);
+            C.setTelefon(telefon);
+            C.setEmail(email);
+            C.setUsername(username);
+            C.setParola(password);
+            if(password == confirmpass && !verifyC(C)){
+                adaugaContCetatean(C);
+                primaryStage.getScene().setRoot(cetateanPage);
+            }
+            else{
+                //afisare date introduse incorecte
+                errorLabel.setText("Date introduse incorecte");
+            }
 
             // După autentificare, puteți afișa pagina cetățeanului
             primaryStage.getScene().setRoot(cetateanPage);

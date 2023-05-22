@@ -1,6 +1,6 @@
 package org.example.DateConectare;
 
-public class Primar {
+public class datePrimar {
         private String nume, prenume, oras, telefon, email, username, parola, codPrimar;
 
         public void setNume(String nume){

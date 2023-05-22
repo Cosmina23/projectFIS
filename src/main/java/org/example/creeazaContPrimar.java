@@ -9,6 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.example.DateConectare.*;
+
+import static org.example.paginaPrincipala.adaugaContPrimar;
+import static org.example.paginaPrincipala.verifyP;
 
 public class creeazaContPrimar {
     public static void afisarePaginaPrimar(Stage primaryStage,VBox primarPage ) {
@@ -59,6 +63,9 @@ public class creeazaContPrimar {
         loginGrid.add(passwordField,1,7);
         loginGrid.add(confirmpassLabel,0,8);
         loginGrid.add(confirmpassField,1,8);
+        Label errorLabel = new Label();
+        loginGrid.add(errorLabel, 1, 9);
+
 
 
         Button loginButton = new Button("Autentificare");
@@ -73,10 +80,27 @@ public class creeazaContPrimar {
             String password = passwordField.getText();
             String confirmpass = confirmpassField.getText();
             // Verificarea autentificării și alte acțiuni specifice primarului
-            // ...
-
-            // După autentificare, puteți afișa pagina primarului
-            primaryStage.getScene().setRoot(primarPage);
+            /* clasa dateConturi contine 2 liste, una cu primari si una cu cetateni
+                Se verifica daca exista datele introduse in lista,altfel se afiseaza un mesaj de eroare
+            * */
+            datePrimar P = new datePrimar();
+            P.setNume(nume);
+            P.setPrenume(prenume);
+            P.setOras(oras);
+            P.setTelefon(telefon);
+            P.setEmail(email);
+            P.setUsername(username);
+            P.setCodPrimar(cod);
+            P.setParola(password);
+            if(password == confirmpass && !verifyP(P)){
+                //adauca primar P in lista de conturi
+                adaugaContPrimar(P);
+                primaryStage.getScene().setRoot(primarPage);
+            }
+            else{
+                //afisare date introduse incorecte
+                errorLabel.setText("Date introduse incorecte");
+            }
         });
 
         loginGrid.add(loginButton, 1, 9);

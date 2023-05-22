@@ -1,6 +1,6 @@
 package org.example.DateConectare;
 
-public class Cetatean {
+public class dateCetatean {
     private String nume, prenume, oras, telefon, email, username, parola;
 
     public void setNume(String nume){
