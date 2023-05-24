@@ -7,10 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.DateConectare.*;
 
+import static org.example.adaugaAnunt.paginaAdaugaAnunt;
 import static org.example.paginaPrincipala.adaugaContPrimar;
 import static org.example.paginaPrincipala.verifyP;
 
@@ -92,15 +94,19 @@ public class creeazaContPrimar {
             P.setUsername(username);
             P.setCodPrimar(cod);
             P.setParola(password);
-            if(password.equals(confirmpass) && !verifyP(P)){
+            /*if(password.equals(confirmpass) && !verifyP(P)){
                 //adauca primar P in lista de conturi
                 adaugaContPrimar(P);
-                primaryStage.getScene().setRoot(primarPage);
-            }
+                paginaAdaugaAnunt();
+                //primaryStage.getScene().setRoot(primarPage);
+           }
             else{
                 //afisare date introduse incorecte
                 errorLabel.setText("Date introduse incorecte");
-            }
+            }*/
+            StackPane adaugaAnunt = new StackPane();
+            adaugaAnunt anunt = new adaugaAnunt();
+            anunt.paginaAdaugaAnunt(primaryStage, adaugaAnunt);
         });
 
         loginGrid.add(loginButton, 1, 9);
