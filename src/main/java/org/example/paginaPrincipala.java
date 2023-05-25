@@ -13,6 +13,7 @@ public class paginaPrincipala extends Application {
     private VBox creeazaCont;
     private VBox contulMeu;
     private static dateConturi dc;
+    private static paginaCreazaCont paginaCreazaCont;
 
     public static void adaugaContPrimar(datePrimar p){
         dc.adaugaParimar(p);
@@ -53,6 +54,7 @@ public class paginaPrincipala extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
+        paginaCreazaCont = new paginaCreazaCont();
         creeazaButton.setOnAction(e -> {
             paginaCreazaCont.afisareCreareCont(primaryStage,creeazaCont);
         });
