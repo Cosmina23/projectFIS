@@ -1,21 +1,18 @@
 package org.example;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuBar;
-import javafx.application.Application;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
 
-import java.awt.*;
-import java.util.Collection;
-
-public class adaugaAnunt {
-    public static void paginaAdaugaAnunt(Stage primaryStage, StackPane adaugaAnunt){
+public class paginaHomePrimar {
+    private VBox menuBox;
+    private Button anunturiButton;
+    private Button sondajeButton;
+    private Scene scene;
+    public void paginaAdaugaAnunt(Stage primaryStage, StackPane adaugaAnunt){
         primaryStage.setTitle("ADAUGA ANUNT");
         primaryStage.show();
 
@@ -31,19 +28,21 @@ public class adaugaAnunt {
         */
         //cand se apasa butonul de anunturi se afiseaza anunturile publicate de primar
 
-        VBox menuBox = new VBox();
-        menuBox.setAlignment(Pos.TOP_CENTER);
+        menuBox = new VBox();
+        menuBox.setPadding(new Insets(5,5,5,5));
+       //menuBox.setAlignment(Pos.TOP_CENTER);
         menuBox.setSpacing(10);
 
-        Button anunturiButton = new Button("Anunturi");
+        anunturiButton = new Button("Anunturi");
+        sondajeButton = new Button("Sondaje");
         anunturiButton.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
+        sondajeButton.setStyle("-fx-background-color: #9F75E2; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
 
-        menuBox.getChildren().add(anunturiButton);
-        adaugaAnunt.getChildren().add(menuBox);
+        menuBox.getChildren().addAll(anunturiButton,sondajeButton);
+        menuBox.setSpacing(20);
+        adaugaAnunt = new StackPane(new HBox(anunturiButton,sondajeButton));
 
-        // Adăugarea label-ului în StackPane
-        //adaugaAnunt.getChildren().add(adauga);
-        Scene scene = new Scene(adaugaAnunt, 500, 500);
+        scene = new Scene(adaugaAnunt, 500, 500);
         primaryStage.setScene(scene);
 
     }
