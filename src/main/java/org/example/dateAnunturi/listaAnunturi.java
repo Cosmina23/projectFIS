@@ -12,7 +12,7 @@ public class listaAnunturi {
     public String toString(){
         String r = "";
         for(Anunt aux :  anunturi){
-            r+=aux+"\n"+"\n";
+            r+=aux+"\n"+"\n ";
         }
         return r;
     }
