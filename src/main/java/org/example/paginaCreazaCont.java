@@ -6,10 +6,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class paginaCreazaCont {
-    private static VBox primarPage;
-    private static VBox cetateanPage;
+    private VBox primarPage;
+    private creeazaContCetatean creeazaContCetatean;
+    private VBox cetateanPage;
 
-    public static void afisareCreareCont (Stage primaryStage, VBox creeazaCont) {
+    public void afisareCreareCont (Stage primaryStage, VBox creeazaCont) {
         primaryStage.setTitle("Creeaza cont");
 
         Button primarButton = new Button("Primar");

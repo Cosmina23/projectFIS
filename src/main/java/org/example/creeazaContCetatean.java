@@ -15,7 +15,7 @@ import static org.example.paginaPrincipala.*;
 
 public class creeazaContCetatean {
 
-    public static void afisarePaginaCetatean(Stage primaryStage, VBox cetateanPage) {
+    public void afisarePaginaCetatean(Stage primaryStage, VBox cetateanPage) {
         primaryStage.setTitle("Pagina Cetățean");
         //primaryStage.getScene().setRoot(cetateanPage);
         // Creare interfață de autentificare
