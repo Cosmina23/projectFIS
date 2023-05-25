@@ -12,10 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.DateConectare.*;
 
-import static org.example.adaugaAnunt.paginaAdaugaAnunt;
-import static org.example.paginaPrincipala.adaugaContPrimar;
-import static org.example.paginaPrincipala.verifyP;
-
 public class creeazaContPrimar {
     public static void afisarePaginaPrimar(Stage primaryStage,VBox primarPage ) {
         primaryStage.setTitle("Pagina Primar");
@@ -105,7 +101,7 @@ public class creeazaContPrimar {
                 errorLabel.setText("Date introduse incorecte");
             }*/
             StackPane adaugaAnunt = new StackPane();
-            adaugaAnunt anunt = new adaugaAnunt();
+            paginaHomePrimar anunt = new paginaHomePrimar();
             anunt.paginaAdaugaAnunt(primaryStage, adaugaAnunt);
         });
 
