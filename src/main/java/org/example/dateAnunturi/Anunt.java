@@ -4,10 +4,10 @@ public class Anunt {
     private String continut;
     private String dataPublicare, dataIncheiere;
 
-    public Anunt(String c, String datep, String datei){
+    public Anunt(String c, String datep, String di){
         continut = c;
         dataPublicare = datep;
-        dataIncheiere = datei;
+        dataIncheiere = di;
     }
 
     public String toString(){

@@ -16,8 +16,8 @@ public class listaAnunturi {
         }
         return r;
     }
-    private void adaugaAnunt(String dp, String di, String c) {
-        Anunt a = new Anunt(c,dp,di);
+    private void adaugaAnunt(String dp, String datei, String c) {
+        Anunt a = new Anunt(c,dp,datei);
         anunturi.add(a);
     }
 
