@@ -11,8 +11,8 @@ public class paginaHomePrimar {
     private Menu menuAnunt,menuSondaj;
     private MenuBar menuBar;
 
-    private MenuItem vizualizareAnunt,adaugaAnunt,stergeAnunt;
-    private MenuItem vizualizareSondaj,adaugaSondaj,stergeSondaj;
+    private MenuItem vizualizareAnunt,adaugaAnunt;
+    private MenuItem vizualizareSondaj,adaugaSondaj;
     private TextField anuntTextField;
     private Button publicaAnuntButton;
     BorderPane borderPane = new BorderPane();
@@ -24,14 +24,12 @@ public class paginaHomePrimar {
         menuAnunt = new Menu("Anunturi");
         vizualizareAnunt = new MenuItem("Vizualizare Anunturi");
         adaugaAnunt = new MenuItem("Adauga Anunt");
-        stergeAnunt = new MenuItem("Sterge Anunt");
-        menuAnunt.getItems().addAll(vizualizareAnunt,adaugaAnunt, stergeAnunt);
+        menuAnunt.getItems().addAll(vizualizareAnunt,adaugaAnunt);
 
         menuSondaj = new Menu("Sondaje");
         vizualizareSondaj = new MenuItem("Vizualizare Sondaje");
         adaugaSondaj = new MenuItem("Adauga Sondaj");
-        stergeSondaj = new MenuItem("Sterge Sondaj");
-        menuSondaj.getItems().addAll(vizualizareSondaj,adaugaSondaj,stergeSondaj);
+        menuSondaj.getItems().addAll(vizualizareSondaj,adaugaSondaj);
 
         menuBar = new MenuBar();
         menuBar.getMenus().addAll(menuAnunt,menuSondaj);
@@ -39,11 +37,9 @@ public class paginaHomePrimar {
 
 
         vizualizareAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
-        stergeAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
         adaugaAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
 
         vizualizareSondaj.setStyle("-fx-background-color: green; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
-        stergeSondaj.setStyle("-fx-background-color: green; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
         adaugaSondaj.setStyle("-fx-background-color: green; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
 
         vBox.getChildren().addAll(menuBar);
@@ -62,6 +58,18 @@ public class paginaHomePrimar {
 
             VBox anuntLayout = new VBox(10);
             anuntLayout.getChildren().addAll(anuntTextField, publicaAnuntButton);
+
+            VBox vbox = new VBox(10);
+            vbox.getChildren().addAll(menuBar, anuntLayout);
+            VBox.setVgrow(anuntLayout, Priority.ALWAYS);
+
+            finalStackPane2.getChildren().add(vbox);
+        });
+
+        vizualizareAnunt.setOnAction(event -> {
+            finalStackPane2.getChildren().clear();
+            //afisare lista de anunturi;
+            VBox anuntLayout = new VBox(10);
 
             VBox vbox = new VBox(10);
             vbox.getChildren().addAll(menuBar, anuntLayout);
