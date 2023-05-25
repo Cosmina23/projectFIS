@@ -12,10 +12,18 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.example.DateConectare.*;
 
+import static org.example.paginaPrincipala.adaugaContPrimar;
+import static org.example.paginaPrincipala.verifyP;
+
 public class creeazaContPrimar {
+
+    private static paginaHomePrimar anunt;
+    private static StackPane stackPane;
     public static void afisarePaginaPrimar(Stage primaryStage,VBox primarPage ) {
         primaryStage.setTitle("Pagina Primar");
 
+        stackPane = new StackPane(primarPage);
+        anunt = new paginaHomePrimar();
         // Creare interfață de autentificare
         GridPane loginGrid = new GridPane();
         loginGrid.setAlignment(Pos.CENTER);
@@ -65,6 +73,7 @@ public class creeazaContPrimar {
         loginGrid.add(errorLabel, 1, 9);
 
 
+        datePrimar P = new datePrimar();
 
         Button loginButton = new Button("Autentificare");
         loginButton.setOnAction(e -> {
@@ -81,7 +90,6 @@ public class creeazaContPrimar {
             /* clasa dateConturi contine 2 liste, una cu primari si una cu cetateni
                 Se verifica daca exista datele introduse in lista,altfel se afiseaza un mesaj de eroare
             * */
-            datePrimar P = new datePrimar();
             P.setNume(nume);
             P.setPrenume(prenume);
             P.setOras(oras);
@@ -90,19 +98,19 @@ public class creeazaContPrimar {
             P.setUsername(username);
             P.setCodPrimar(cod);
             P.setParola(password);
-            /*if(password.equals(confirmpass) && !verifyP(P)){
+            if(password.equals(confirmpass) && !verifyP(P)){
                 //adauca primar P in lista de conturi
                 adaugaContPrimar(P);
-                paginaAdaugaAnunt();
+                //anunt.paginaAdaugaAnunt(primaryStage,stackPane);
                 //primaryStage.getScene().setRoot(primarPage);
            }
             else{
                 //afisare date introduse incorecte
                 errorLabel.setText("Date introduse incorecte");
-            }*/
-            StackPane adaugaAnunt = new StackPane();
-            paginaHomePrimar anunt = new paginaHomePrimar();
-            anunt.paginaAdaugaAnunt(primaryStage, adaugaAnunt);
+            }
+            //anunt.paginaAdaugaAnunt(primaryStage, stackPane);
+
+            anunt.paginaAdaugaAnunt(primaryStage,stackPane);
         });
 
         loginGrid.add(loginButton, 1, 9);

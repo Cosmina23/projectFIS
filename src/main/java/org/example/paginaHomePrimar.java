@@ -1,12 +1,9 @@
 package org.example;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.scene.control.Button;
 
 public class paginaHomePrimar {
     private VBox vBox;
@@ -16,6 +13,9 @@ public class paginaHomePrimar {
 
     private MenuItem vizualizareAnunt,adaugaAnunt,stergeAnunt;
     private MenuItem vizualizareSondaj,adaugaSondaj,stergeSondaj;
+    private TextField anuntTextField;
+    private Button publicaAnuntButton;
+    BorderPane borderPane = new BorderPane();
     public void paginaAdaugaAnunt(Stage primaryStage, StackPane stackPane){
         primaryStage.setTitle("ADAUGA ANUNT");
         primaryStage.show();
@@ -37,6 +37,7 @@ public class paginaHomePrimar {
         menuBar.getMenus().addAll(menuAnunt,menuSondaj);
         vBox = new VBox();
 
+
         vizualizareAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
         stergeAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
         adaugaAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
@@ -48,6 +49,27 @@ public class paginaHomePrimar {
         vBox.getChildren().addAll(menuBar);
         vBox.setSpacing(20);
         stackPane = new StackPane(new HBox(menuBar));
+        StackPane finalStackPane = stackPane;
+        StackPane finalStackPane1 = stackPane;
+        StackPane finalStackPane2 = stackPane;
+        adaugaAnunt.setOnAction(event -> {
+            finalStackPane2.getChildren().clear();
+
+            // Crearea noilor elemente pentru adăugarea anunțului
+            anuntTextField = new TextField();
+            anuntTextField.setPromptText("Introdu anuntul...");
+            publicaAnuntButton = new Button("Publica");
+
+            VBox anuntLayout = new VBox(10);
+            anuntLayout.getChildren().addAll(anuntTextField, publicaAnuntButton);
+
+            VBox vbox = new VBox(10);
+            vbox.getChildren().addAll(menuBar, anuntLayout);
+            VBox.setVgrow(anuntLayout, Priority.ALWAYS);
+
+            finalStackPane2.getChildren().add(vbox);
+        });
+
 
         scene = new Scene(stackPane, 500, 500);
         primaryStage.setScene(scene);
