@@ -1,48 +1,55 @@
 package org.example;
 
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
 public class paginaHomePrimar {
-    private VBox menuBox;
-    private Button anunturiButton;
-    private Button sondajeButton;
+    private VBox vBox;
     private Scene scene;
-    public void paginaAdaugaAnunt(Stage primaryStage, StackPane adaugaAnunt){
+    private Menu menuAnunt,menuSondaj;
+    private MenuBar menuBar;
+
+    private MenuItem vizualizareAnunt,adaugaAnunt,stergeAnunt;
+    private MenuItem vizualizareSondaj,adaugaSondaj,stergeSondaj;
+    public void paginaAdaugaAnunt(Stage primaryStage, StackPane stackPane){
         primaryStage.setTitle("ADAUGA ANUNT");
         primaryStage.show();
 
 
-        /*Menu fileMenu = new Menu("File");
-        MenuItem openItem = new MenuItem("Open");
-        MenuItem saveItem = new MenuItem("Save");
-        MenuItem exitItem = new MenuItem("Exit");
-        fileMenu.getItems().addAll(openItem, saveItem, exitItem);
-        MenuBar menuBar = new MenuBar();
-        menuBar.getMenus().addAll(fileMenu);
-        adaugaAnunt.getChildren().add(menuBar);
-        */
-        //cand se apasa butonul de anunturi se afiseaza anunturile publicate de primar
+        menuAnunt = new Menu("Anunturi");
+        vizualizareAnunt = new MenuItem("Vizualizare Anunturi");
+        adaugaAnunt = new MenuItem("Adauga Anunt");
+        stergeAnunt = new MenuItem("Sterge Anunt");
+        menuAnunt.getItems().addAll(vizualizareAnunt,adaugaAnunt, stergeAnunt);
 
-        menuBox = new VBox();
-        menuBox.setPadding(new Insets(5,5,5,5));
-       //menuBox.setAlignment(Pos.TOP_CENTER);
-        menuBox.setSpacing(10);
+        menuSondaj = new Menu("Sondaje");
+        vizualizareSondaj = new MenuItem("Vizualizare Sondaje");
+        adaugaSondaj = new MenuItem("Adauga Sondaj");
+        stergeSondaj = new MenuItem("Sterge Sondaj");
+        menuSondaj.getItems().addAll(vizualizareSondaj,adaugaSondaj,stergeSondaj);
 
-        anunturiButton = new Button("Anunturi");
-        sondajeButton = new Button("Sondaje");
-        anunturiButton.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
-        sondajeButton.setStyle("-fx-background-color: #9F75E2; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
+        menuBar = new MenuBar();
+        menuBar.getMenus().addAll(menuAnunt,menuSondaj);
+        vBox = new VBox();
 
-        menuBox.getChildren().addAll(anunturiButton,sondajeButton);
-        menuBox.setSpacing(20);
-        adaugaAnunt = new StackPane(new HBox(anunturiButton,sondajeButton));
+        vizualizareAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
+        stergeAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
+        adaugaAnunt.setStyle("-fx-background-color: #5F75E1; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
 
-        scene = new Scene(adaugaAnunt, 500, 500);
+        vizualizareSondaj.setStyle("-fx-background-color: green; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
+        stergeSondaj.setStyle("-fx-background-color: green; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
+        adaugaSondaj.setStyle("-fx-background-color: green; -fx-text-fill: #FFFFFF; -fx-font-size: 18px;");
+
+        vBox.getChildren().addAll(menuBar);
+        vBox.setSpacing(20);
+        stackPane = new StackPane(new HBox(menuBar));
+
+        scene = new Scene(stackPane, 500, 500);
         primaryStage.setScene(scene);
 
     }
