@@ -12,7 +12,7 @@ public class paginaPrincipala extends Application {
     private Stage primaryStage;
     private VBox creeazaCont;
     private VBox contulMeu;
-    private static dateConturi dc;
+    private static dateConturi dc = new dateConturi();
     private static paginaCreazaCont paginaCreazaCont;
 
     public static void adaugaContPrimar(datePrimar p){
@@ -23,7 +23,12 @@ public class paginaPrincipala extends Application {
     }
 
     public static boolean verifyP(datePrimar p){
+        if(
+                p.getNume() != null && p.getPrenume() != null && p.getEmail() != null && p.getOras()!= null && p.getUsername()!=null &&
+                        p.getTelefon() != null && p.getCodPrimar() != null && p.getParola()!=null
+        )
         return dc.verificaCredentialePrimar(p);
+        else return false;
     }
 
     public static boolean verifyC(dateCetatean c){
